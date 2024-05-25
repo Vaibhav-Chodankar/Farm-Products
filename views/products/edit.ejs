@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Edit</title>
+</head>
+
+<body class="container">
+    <h1 class="display-1">Edit </h1>
+    <section>
+        <form action="/products/<%= foundProduct._id %>/edit" method="POST">
+            <div class="my-2">
+                <label class="fs-5" for="name">Enter product name</label>
+                <input class="form-control" type="text" value=" <%= foundProduct.name %>" id="name" name="name"
+                    required>
+            </div>
+            <div class="my-2">
+                <label class="fs-5" for="price">Enter price($)</label>
+                <input class="form-control" type="number" value="<%= foundProduct.price %>" name="price" id="price"
+                    required>
+            </div>
+            <div class="my-2">
+                <label class="fs-5">Category</label> <br>
+                <input class="form-check-input mt-0" type="radio" name="category" id="fruit" value="fruit"
+                    <%=(foundProduct.category==='fruit' )? 'checked' : '' %>>
+                <label for="fruit">fruit</label> <br>
+                <input class="form-check-input mt-0" type="radio" name="category" id="vegetable" value="vegetable"
+                    <%=(foundProduct.category==='vegetable' )? 'checked' : '' %>>
+                <label for="vegetable">vegetable</label> <br>
+                <input class="form-check-input mt-0" type="radio" name="category" id="dairy" value="dairy"
+                    <%=(foundProduct.category==='dairy' )? 'checked' : '' %>>
+                <label for="dairy">dairy</label>
+            </div>
+            <div class="my-2">
+                <button class="btn btn-warning">Update</button>
+            </div>
+        </form class="my-2">
+        <a class="btn btn-info" href="/products/<%= foundProduct._id %>">Back</a>
+    </section>
+</body>
+
+</html>
